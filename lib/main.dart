@@ -1,55 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_devfest_2023/constants/color.dart';
+import 'package:flutter_devfest_2023/home_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final NavigatorObserver? navigatorObserver;
 
-  // This widget is the root of your application.
+  const MyApp({super.key, this.navigatorObserver});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Devfest Demo',
+      navigatorObservers: [
+        if (navigatorObserver != null) navigatorObserver!,
+      ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const MainPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(243, 246, 251, 1),
       appBar: AppBar(
-        
-        title: Text("DevFest Bhilai"),
+        surfaceTintColor: Colors.white60,
+        title: const Text("DevFest Bhilai"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset("assets/images/cover.png"),
-            const Text(
-              'DevFest Bhilai 2023',
-            ),
-            const Text(
-              '26 November, 2023',
-            ),
-            const Text(
-              'IIT Bhilai, New Campus',
-            ),
-            const Text(
-              '10:00 AM - 6:00 PM',
-            ),
-          ],
-        ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: const [
+          MyHomePage(),
+          Scaffold(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        backgroundColor: Colors.white,
+        selectedItemColor: DevfestColors.blue,
+        onTap: (value) {
+          setState(() {
+            _currentIndex = value;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Speakers"),
+        ],
       ),
     );
   }
