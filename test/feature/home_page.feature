@@ -14,5 +14,4 @@ Feature: Home Page
         Given the app is running
         Then i see {'Book Tickets'} text
         When i tap {'Book Tickets'} text
-        And i wait
         Then verify navigates to booking page
