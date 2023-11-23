@@ -117,7 +117,7 @@ class MyHomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (_) => Scaffold(
-                        appBar: AppBar(title: const Text("Test")),
+                        appBar: AppBar(title: const Text("Booking")),
                       ),
                     ),
                   );
