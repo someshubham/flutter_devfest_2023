@@ -18,7 +18,8 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(243, 246, 251, 1),
       appBar: AppBar(
-        surfaceTintColor: Colors.white60,
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white10,
         title: const Text("DevFest Bhilai"),
       ),
       body: IndexedStack(
