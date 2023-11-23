@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest_2023/constants/color.dart';
+import 'package:flutter_devfest_2023/constants/images.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -16,7 +17,7 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset("assets/images/cover.png"),
+                child: Image.asset(DevfestImage.cover),
               ),
             ),
             const Padding(
