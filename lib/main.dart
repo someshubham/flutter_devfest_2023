@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest_2023/constants/color.dart';
 import 'package:flutter_devfest_2023/home_page.dart';
+import 'package:flutter_devfest_2023/speaker_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +50,7 @@ class _MainPageState extends State<MainPage> {
         index: _currentIndex,
         children: const [
           MyHomePage(),
-          Scaffold(),
+          SpeakerPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
